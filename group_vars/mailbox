@@ -21,3 +21,25 @@ filesystems:
     target: "/home/user-data"
     options:
       - "nodevices"
+
+firewall_v4_group_rules:
+  400 allow dns:
+    - pass in quick proto tcp from any to port = 53 flags S keep state
+    - pass in quick proto udp from any to port = 53 keep state
+  410 allow https server:
+    - pass in quick proto tcp from any to port = 80 flags S keep state
+    - pass in quick proto udp from any to port = 80 keep state
+    - pass in quick proto tcp from any to port = 443 flags S keep state
+    - pass in quick proto udp from any to port = 443 keep state
+  420 allow smtp(s):
+    - pass in quick proto tcp from any to port = 25 flags S keep state
+    - pass in quick proto tcp from any to port = 587 flags S keep state
+    - pass in quick proto udp from any to port = 587 keep state
+  430 allow imaps:
+    - pass in quick proto tcp from any to port = 993 flags S keep state
+    - pass in quick proto udp from any to port = 993 keep state
+  440 allow pops:
+    - pass in quick proto tcp from any to port = 995 flags S keep state
+    - pass in quick proto udp from any to port = 995 keep state
+  460 allow sieve:
+    - pass in quick proto tcp from any to port = 4190 flags S keep state
