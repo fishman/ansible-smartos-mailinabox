@@ -11,6 +11,12 @@ kernel_version: 3.18.0
 quota: 10
 brand: lx
 
+zfs_volumes:
+  - name: "zones/data/mailbox_{{ boxname }}"
+    mountpoint: "/zones/data/mailbox_{{ boxname }}"
+    state: present
+    quota: 50G
+
 filesystems:
   - type: "lofs"
     source: "/zones/data/mailbox_{{ boxname }}"
