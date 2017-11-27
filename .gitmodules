@@ -1,0 +1,6 @@
+[submodule "roles/smartos_vm"]
+	path = roles/smartos_vm
+	url = https://github.com/fishman/ansible-role-smartos-vm
+[submodule "roles/firewall"]
+	path = roles/firewall
+	url = https://github.com/fishman/ansible-role-firewall

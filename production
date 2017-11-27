@@ -1,0 +1,11 @@
+[smartos]
+smartos.root
+
+[vms:children]
+mailbox
+
+[mailbox:children]
+mailbox_domain
+
+[mailbox_domain]
+mailbox_domain.dmz

@@ -1,0 +1,19 @@
+---
+hypervisor_host: smartos.root
+
+boxdomain: "mail.{{ boxname }}.{{ tld }}"
+alias: "mailbox_{{ boxname }}"
+image_uuid: 04179d8e-188a-11e7-af4a-1349e98cbd17 # ubuntu 14.04
+cpu_cap: 100
+max_physical_memory: 1280 # we should have at least 1GB memory
+indestructible_zoneroot: true
+kernel_version: 3.18.0
+quota: 10
+brand: lx
+
+filesystems:
+  - type: "lofs"
+    source: "/zones/data/mailbox_{{ boxname }}"
+    target: "/home/user-data"
+    options:
+      - "nodevices"

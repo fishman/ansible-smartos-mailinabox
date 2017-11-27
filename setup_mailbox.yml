@@ -1,0 +1,20 @@
+---
+- hosts: mailbox
+  remote_user: root
+  roles:
+    - firewall
+  tasks:
+    - name: Update packages
+      apt: upgrade=dist update_cache=yes
+    - name: Install git and other dependencies
+      package: name={{item}} state=installed
+      with_items:
+       - git
+       - build-essential
+       - libssl-dev
+       - libffi-dev
+       - python3-dev
+       - uuid
+    - git:
+        repo: https://github.com/fishman/mailinabox.git
+        dest: /root/mailinabox

@@ -1,0 +1,11 @@
+---
+- hosts: vms
+  remote_user: root
+  gather_facts: False
+  environment:
+    PATH: "/opt/local/sbin:/opt/local/bin:{{
+      (ansible_env|default({})).PATH|default('/usr/bin:/usr/sbin') }}"
+  vars:
+    - ansible_python_interpreter: /opt/local/bin/python
+  roles:
+    - smartos_vm
