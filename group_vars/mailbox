@@ -1,6 +1,4 @@
 ---
-hypervisor_host: smartos.root
-
 boxdomain: "mail.{{ boxname }}.{{ tld }}"
 alias: "mailbox_{{ boxname }}"
 image_uuid: 04179d8e-188a-11e7-af4a-1349e98cbd17 # ubuntu 14.04

@@ -8,6 +8,8 @@ You will have to modify `production` and add a `group_vars/mailbox_{domain}`
 file.
 
     ---
+    hypervisor_host: smartos.root
+
     boxname: somedomain
     tld: com
 
